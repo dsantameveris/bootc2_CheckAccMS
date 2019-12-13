@@ -1,7 +1,7 @@
-package com.everis.CheckAccount.Controller;
+package com.everis.CheckAccMS.Controller;
 
-import com.everis.CheckAccount.Model.CheckAccount;
-import com.everis.CheckAccount.Service.CheckAccountService;
+import com.everis.CheckAccMS.Model.CheckAccount;
+import com.everis.CheckAccMS.Service.CheckAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

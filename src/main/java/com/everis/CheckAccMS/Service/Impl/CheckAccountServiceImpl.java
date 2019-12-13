@@ -1,7 +1,8 @@
-package com.everis.CheckAccount.Service;
+package com.everis.CheckAccMS.Service.Impl;
 
-import com.everis.CheckAccount.Model.CheckAccount;
-import com.everis.CheckAccount.Repository.CheckAccountRepo;
+import com.everis.CheckAccMS.Model.CheckAccount;
+import com.everis.CheckAccMS.Repository.CheckAccountRepo;
+import com.everis.CheckAccMS.Service.CheckAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class CheckAccountService implements CheckAccountInterface {
+public class CheckAccountServiceImpl implements CheckAccountService {
 
     @Autowired
     private CheckAccountRepo repo;

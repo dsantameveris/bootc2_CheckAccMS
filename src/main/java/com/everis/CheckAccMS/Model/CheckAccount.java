@@ -1,4 +1,4 @@
-package com.everis.CheckAccount.Model;
+package com.everis.CheckAccMS.Model;
 
 import javax.validation.constraints.NotBlank;
 
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
 @Data
-@Document(collection = "checkAccounts")
+@Document(collection = "CheckAccs")
 public class CheckAccount
 {
     @Id

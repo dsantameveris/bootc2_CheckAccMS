@@ -1,6 +1,6 @@
-package com.everis.CheckAccount.Repository;
+package com.everis.CheckAccMS.Repository;
 
-import com.everis.CheckAccount.Model.CheckAccount;
+import com.everis.CheckAccMS.Model.CheckAccount;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 

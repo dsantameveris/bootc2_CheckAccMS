@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.everis</groupId>
-	<artifactId>CheckAccount</artifactId>
+	<artifactId>CheckAccMS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CheckAccount</name>
+	<name>CheckAccMS</name>
 	<description>Check Account Microservice</description>
 
 	<properties>

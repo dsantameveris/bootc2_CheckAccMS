@@ -1,11 +1,11 @@
-package com.everis.CheckAccount.Service;
+package com.everis.CheckAccMS.Service;
 
-import com.everis.CheckAccount.Model.CheckAccount;
+import com.everis.CheckAccMS.Model.CheckAccount;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface CheckAccountInterface
+public interface CheckAccountService
 {
     //Get all CheckAccounts from DB
     public Flux<CheckAccount> findAllAccounts();
