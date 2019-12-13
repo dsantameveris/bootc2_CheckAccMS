@@ -1,7 +1,7 @@
 package com.everis.CheckAccMS.Controller;
 
 import com.everis.CheckAccMS.Model.CheckAccount;
-import com.everis.CheckAccMS.Service.CheckAccountService;
+import com.everis.CheckAccMS.Service.Impl.CheckAccountServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,29 +14,23 @@ public class CheckAccountController
 {
     //Service Instance
     @Autowired
-    private CheckAccountService service;
-
-    //Get all CheckAccounts
-    public Flux<CheckAccount> getAllAccounts()
-    {
-        return service.findAllAccounts();
-    }
-
-    //Get Account by Name
-    public Mono<CheckAccount> getAccountByNumber(String number)
-    {
-        return service.findAccountByNumber(number);
-    }
+    private CheckAccountServiceImpl service;
 
     //Create Account
     public Mono<CheckAccount> createAccount(CheckAccount account)
     {
-        return service.createAccount(account);
+        return service.addAccount(account);
     }
 
     //Delete Account
     public Mono<Void> deleteAccount(CheckAccount account)
     {
-        return service.deleteAccount(account);
+        return service.delAccount(account);
+    }
+
+    //Get all CheckAccounts
+    public Flux<CheckAccount> getAllAccounts()
+    {
+        return service.findAllAccounts();
     }
 }

@@ -11,29 +11,26 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class CheckAccountServiceImpl implements CheckAccountService {
+public class CheckAccountServiceImpl implements CheckAccountService{
 
     @Autowired
     private CheckAccountRepo repo;
 
+    //Create Account
     @Override
-    public Flux<CheckAccount> findAllAccounts() {
-        return repo.findAll();
-    }
-
-    @Override
-    public Mono<CheckAccount> findAccountByNumber(String number) {
-        return repo.findByNumber(number);
-    }
-
-    @Override
-    public Mono<CheckAccount> createAccount(CheckAccount account) {
+    public Mono<CheckAccount> addAccount(CheckAccount account) {
         return repo.save(account);
     }
 
+    //DeleteAccount
     @Override
-    public Mono<Void> deleteAccount(CheckAccount account) {
+    public Mono<Void> delAccount(CheckAccount account) {
         return repo.delete(account);
     }
-    
+
+    //Get All Accounts
+    @Override
+    public Flux<CheckAccount> findAllAccounts() {
+        return repo.findAll();
+    }    
 }

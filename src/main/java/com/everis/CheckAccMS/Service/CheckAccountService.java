@@ -7,16 +7,12 @@ import reactor.core.publisher.Mono;
 
 public interface CheckAccountService
 {
+    //Create CheckAccount
+    public Mono<CheckAccount> addAccount(CheckAccount account);
+
+    //Delete Account
+    public Mono<Void> delAccount(CheckAccount account);
+
     //Get all CheckAccounts from DB
     public Flux<CheckAccount> findAllAccounts();
-
-    //Get CheckAccount by number
-    public Mono<CheckAccount> findAccountByNumber(String number);
-
-    //Create CheckAccount
-    public Mono<CheckAccount> createAccount(CheckAccount account);
-
-    //Delete Account by number
-    public Mono<Void> deleteAccount(CheckAccount account);
-
 }
