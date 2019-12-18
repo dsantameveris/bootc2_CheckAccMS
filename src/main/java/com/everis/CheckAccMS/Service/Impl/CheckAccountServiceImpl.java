@@ -16,6 +16,24 @@ public class CheckAccountServiceImpl implements CheckAccountService{
     @Autowired
     private CheckAccountRepo repo;
 
+    //Get All Accounts
+    @Override
+    public Flux<CheckAccount> findAllAccounts() {
+        return repo.findAll();
+    }
+
+    //Get account by Number
+    @Override
+    public Mono<CheckAccount> findAccountByNumber(String number) {
+        return repo.findByNumber(number);
+    }
+
+    //Get account by Owner
+    @Override
+    public Mono<CheckAccount> findAccountByOwner(String owner) {
+        return repo.findByOwner(owner);
+    }
+
     //Create Account
     @Override
     public Mono<CheckAccount> addAccount(CheckAccount account) {
@@ -27,10 +45,4 @@ public class CheckAccountServiceImpl implements CheckAccountService{
     public Mono<Void> delAccount(CheckAccount account) {
         return repo.delete(account);
     }
-
-    //Get All Accounts
-    @Override
-    public Flux<CheckAccount> findAllAccounts() {
-        return repo.findAll();
-    }    
 }
