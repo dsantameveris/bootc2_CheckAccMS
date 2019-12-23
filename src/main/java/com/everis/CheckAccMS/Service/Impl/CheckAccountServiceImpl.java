@@ -1,5 +1,6 @@
 package com.everis.CheckAccMS.Service.Impl;
 
+import com.everis.CheckAccMS.DTO.CheckAccountDTO;
 import com.everis.CheckAccMS.Model.CheckAccount;
 import com.everis.CheckAccMS.Repository.CheckAccountRepo;
 import com.everis.CheckAccMS.Service.CheckAccountService;
@@ -22,16 +23,34 @@ public class CheckAccountServiceImpl implements CheckAccountService{
         return repo.findAll();
     }
 
+    //Get All Accounts (DTO)
+    @Override
+    public Flux<CheckAccountDTO> findAllAccountsDTO() {
+        return repo.findAll().map(account -> new CheckAccountDTO(account.getNumber(), account.getCurrency()));
+    }
+
     //Get account by Number
     @Override
     public Mono<CheckAccount> findAccountByNumber(String number) {
         return repo.findByNumber(number);
     }
 
-    //Get account by Owner
+    //Get account by Number
     @Override
-    public Mono<CheckAccount> findAccountByOwner(String owner) {
-        return repo.findByOwner(owner);
+    public Mono<CheckAccountDTO> findAccountByNumberDTO(String number) {
+        return repo.findByNumber(number).map(account -> new CheckAccountDTO(account.getNumber(), account.getCurrency()));
+    }
+
+    //Get account by Owner DNI
+    @Override
+    public Mono<CheckAccount> findAccountByOwnerDni(String dni) {
+        return repo.findByOwner_Dni(dni);
+    }
+
+    //Get account by Owner DNI (DTO)
+    @Override
+    public Mono<CheckAccountDTO> findAccountByOwnerDniDTO(String dni) {
+        return repo.findByOwner_Dni(dni).map(account -> new CheckAccountDTO(account.getNumber(), account.getCurrency()));
     }
 
     //Create Account

@@ -2,6 +2,8 @@ package com.everis.CheckAccMS.Model;
 
 import javax.validation.constraints.NotBlank;
 
+import com.everis.CheckAccMS.Model.Secondary.Owner;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,7 +20,7 @@ public class CheckAccount
     private String number;
 
     @NotBlank
-    private String owner;
+    private Owner owner;
 
     @NotBlank
     private String currency;

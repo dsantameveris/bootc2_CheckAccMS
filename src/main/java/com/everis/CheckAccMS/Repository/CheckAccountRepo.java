@@ -10,5 +10,5 @@ public interface CheckAccountRepo extends ReactiveMongoRepository<CheckAccount, 
 {
     Mono<CheckAccount> findByNumber(String number);
     
-    Mono<CheckAccount> findByOwner(String owner);
+    Mono<CheckAccount> findByOwner_Dni(String dni);
 }

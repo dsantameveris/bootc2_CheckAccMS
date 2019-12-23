@@ -1,5 +1,6 @@
 package com.everis.CheckAccMS.Controller;
 
+import com.everis.CheckAccMS.DTO.CheckAccountDTO;
 import com.everis.CheckAccMS.Model.CheckAccount;
 import com.everis.CheckAccMS.Service.Impl.CheckAccountServiceImpl;
 
@@ -32,6 +33,13 @@ public class CheckAccountController
         return service.findAllAccounts();
     }
 
+    //Get all CheckAccounts (DTO)
+    @GetMapping("/alldto")
+    public Flux<CheckAccountDTO> getAllAccountsDTO()
+    {
+        return service.findAllAccountsDTO();
+    }
+
     //Get account By Number
     @GetMapping("/number/{number}")
     public Mono<CheckAccount> getAccountByNumber(@PathVariable String number)
@@ -39,11 +47,25 @@ public class CheckAccountController
         return service.findAccountByNumber(number);
     }
 
-    //Get account By owner
-    @GetMapping("/owner/{owner}")
-    public Mono<CheckAccount> getAccountByOwner(@PathVariable String owner)
+    //Get account By Number (DTO)
+    @GetMapping("/numberdto/{number}")
+    public Mono<CheckAccountDTO> getAccountByNumberDTO(@PathVariable String number)
     {
-        return service.findAccountByOwner(owner);
+        return service.findAccountByNumberDTO(number);
+    }
+
+    //Get account By owner DNI
+    @GetMapping("/owner/{dni}")
+    public Mono<CheckAccount> getAccountByOwnerDni(@PathVariable String dni)
+    {
+        return service.findAccountByOwnerDni(dni);
+    }
+
+    //Get account By owner DNI (DTO)
+    @GetMapping("/ownerdto/{dni}")
+    public Mono<CheckAccountDTO> getAccountByOwnerDniDTO(@PathVariable String dni)
+    {
+        return service.findAccountByOwnerDniDTO(dni);
     }
 
     //Create account data
