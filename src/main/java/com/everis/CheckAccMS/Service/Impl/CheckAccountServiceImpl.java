@@ -35,7 +35,7 @@ public class CheckAccountServiceImpl implements CheckAccountService{
         return repo.findByNumber(number);
     }
 
-    //Get account by Number
+    //Get account by Number (DTO)
     @Override
     public Mono<CheckAccountDTO> findAccountByNumberDTO(String number) {
         return repo.findByNumber(number).map(account -> new CheckAccountDTO(account.getNumber(), account.getCurrency()));
@@ -56,7 +56,8 @@ public class CheckAccountServiceImpl implements CheckAccountService{
     //Create Account
     @Override
     public Mono<CheckAccount> addAccount(CheckAccount account) {
-        return repo.save(account);
+        return repo.findByOwner_Dni(account.getOwner().getDni())
+                                                        .switchIfEmpty(repo.save(account));
     }
 
     //DeleteAccount
