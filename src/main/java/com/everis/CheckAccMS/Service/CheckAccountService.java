@@ -1,6 +1,7 @@
 package com.everis.CheckAccMS.Service;
 
 import com.everis.CheckAccMS.DTO.CheckAccountDTO;
+import com.everis.CheckAccMS.DTO.Movement.MoneyOperationDTO;
 import com.everis.CheckAccMS.Model.CheckAccount;
 
 import reactor.core.publisher.Flux;
@@ -32,5 +33,8 @@ public interface CheckAccountService
 
     //Delete Account
     public Mono<Void> delAccount(CheckAccount account);
+
+    //Deposit
+    public Mono<MoneyOperationDTO> deposit(MoneyOperationDTO deposit);
 
 }

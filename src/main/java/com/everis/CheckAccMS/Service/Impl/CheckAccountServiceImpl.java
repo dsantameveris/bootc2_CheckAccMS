@@ -1,6 +1,7 @@
 package com.everis.CheckAccMS.Service.Impl;
 
 import com.everis.CheckAccMS.DTO.CheckAccountDTO;
+import com.everis.CheckAccMS.DTO.Movement.MoneyOperationDTO;
 import com.everis.CheckAccMS.Model.CheckAccount;
 import com.everis.CheckAccMS.Repository.CheckAccountRepo;
 import com.everis.CheckAccMS.Service.CheckAccountService;
@@ -64,5 +65,18 @@ public class CheckAccountServiceImpl implements CheckAccountService{
     @Override
     public Mono<Void> delAccount(CheckAccount account) {
         return repo.delete(account);
+    }
+
+    //Deposit
+    @Override
+    public Mono<MoneyOperationDTO> deposit(MoneyOperationDTO deposit)
+    {
+        return repo.findByNumber(deposit.getMoneyDestination())
+                        .flatMap(acc -> 
+                        {
+                            acc.setBalance(acc.getBalance() + deposit.getAmount());
+                            repo.save(acc).subscribe();
+                            return Mono.just(deposit);
+                        });
     }
 }

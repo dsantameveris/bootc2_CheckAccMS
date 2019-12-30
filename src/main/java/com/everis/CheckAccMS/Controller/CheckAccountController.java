@@ -1,6 +1,7 @@
 package com.everis.CheckAccMS.Controller;
 
 import com.everis.CheckAccMS.DTO.CheckAccountDTO;
+import com.everis.CheckAccMS.DTO.Movement.MoneyOperationDTO;
 import com.everis.CheckAccMS.Model.CheckAccount;
 import com.everis.CheckAccMS.Service.Impl.CheckAccountServiceImpl;
 
@@ -92,6 +93,13 @@ public class CheckAccountController
     public Mono<Void> deleteAccountByNumber(@PathVariable String number)
     {
         return service.findAccountByNumber(number).flatMap(account -> service.delAccount(account));
+    }
+
+    //Deposit amount
+    @PutMapping("/deposit")
+    public Mono<MoneyOperationDTO> deposit(@RequestBody MoneyOperationDTO deposit)
+    {
+        return service.deposit(deposit);        
     }
 
 }
